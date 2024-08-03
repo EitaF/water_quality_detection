@@ -209,3 +209,22 @@ def training(model_vgg16, model):
 
 def save_model(model, h5_filename):
   model.save(h5filename)
+
+#Plot accuracy and loss
+
+def plot_acc_loss(history):
+    plt.plot(history.history['accuracy'], "-", label = "accuracy")
+    plt.plot(history.history['val_accuracy'], "-", label = "val_acc")
+    plt.title("accuracy")
+    plt.xlabel("epoch")
+    plt.ylabel("accuracy")
+    plt.legend(loc = "lower right")
+    plt.show()
+
+    plt.plot(history.history['loss'], "-", label = "loss")
+    plt.plot(history.history['val_loss'], '-', label = 'val_loss')
+    plt.title('loss')
+    plt.xlabel("epoch")
+    plt.ylabel("loss")
+    plt.legend(loc = "upper right")
+    plt.show()
